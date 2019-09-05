@@ -29,9 +29,5 @@ app.put("/pomodoros/:id", db.updatePomodoro);
 app.delete("/pomodoros/:id", db.deletePomodoro);
 
 app.listen(process.env.PORT || 3002, () => {
-<<<<<<< HEAD
   console.log(`Server listening`);
-=======
-  console.log(`Server listening`)
->>>>>>> 36566524f7ba3b60e3961368536c3b463ca07ed4
 });
