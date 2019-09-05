@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE pomodoros
 (
     pomodoro_id uuid DEFAULT uuid_generate_v4(),

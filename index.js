@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const db = require("./queries");
-const port = 3000;
 
 app.use(bodyParser.json());
 app.use(
@@ -22,6 +21,6 @@ app.post("/pomodoros", db.addPomodoro);
 app.put("/pomodoros/:id", db.updatePomodoro);
 app.delete("/pomodoros/:id", db.deletePomodoro);
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}.`);
+app.listen(process.env.PORT || 3002, () => {
+  console.log(`Server listening`)
 });
