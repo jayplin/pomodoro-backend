@@ -1,8 +1,6 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 CREATE TABLE pomodoros
 (
-    pomodoro_id uuid DEFAULT uuid_generate_v4(),
+    pomodoro_id VARCHAR (255) NOT NULL,
     timestamp TIMESTAMPTZ NOT NULL,
     finished BOOLEAN NOT NULL,
     task_name VARCHAR(255) NOT NULL,
@@ -11,6 +9,6 @@ CREATE TABLE pomodoros
 
 
 INSERT INTO pomodoros
-    (finished, task_name, timestamp
+    (pomodoro_id, finished, task_name, timestamp
 VALUES
-    ('false', 'Exercise 1', '2016-06-22 19:10:25-07');     
+    ('primkey', 'false', 'testEntry', '2016-06-22 19:10:25-07');     
