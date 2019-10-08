@@ -37,18 +37,18 @@ const deletePomodoro = (request, response) => {
   );
 };
 const addPomodoro = (request, response) => {
-  const { finished, timestamp, task_name } = request.body;
+  const { pomodoro_id, finished, timestamp, task_name } = request.body;
 
   pool.query(
-    "INSERT INTO pomodoros (finished, timestamp, task_name) VALUES ($1, $2, $3)",
-    [finished, timestamp, task_name],
+    "INSERT INTO pomodoros (pomodoro_id, finished, timestamp, task_name) VALUES ($1, $2, $3, $4)",
+    [pomodoro_id, finished, timestamp, task_name],
     (error, results) => {
       if (error) {
         throw error;
       }
       console.log(results);
 
-      response.status(201).send(`Pomodoro added with ID: ${results.insertId}`);
+      response.status(201).send(`Pomodoro added with ID: ${pomodoro_id}`);
     }
   );
 };
